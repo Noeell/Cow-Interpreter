@@ -7,7 +7,6 @@ public class CowInterpreter {
     private String[] src;
     private int memPtr;
     private int[] mem;
-
     int i;
     private ArrayList<Integer> bracketsPosition = new ArrayList<Integer>();
 
@@ -103,34 +102,28 @@ public class CowInterpreter {
         memPtr = 0;
     }
 
-    //JA
     private void MOo() {
         mem[memPtr]--;
     }
 
-    //JA
     private void MoO() {
         mem[memPtr]++;
     }
 
-    //Ja
     private void OOM() {
         writeToStdOut(mem[memPtr]);
     }
 
-    //JA
     private void oom() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("You Printed oom, please give in a integer");
         mem[memPtr] = scanner.nextInt();
     }
 
-    //JA
     private void OOO() {
         mem[memPtr] = 0;
     }
 
-    //JA
     private void moO() {
         memPtr++;
         if (mem.length < memPtr) {
@@ -138,7 +131,6 @@ public class CowInterpreter {
         }
     }
 
-    //JA
     private void mOo() {
         if (memPtr == 0) {
             throw new IllegalArgumentException("Failed to run!");
@@ -147,7 +139,6 @@ public class CowInterpreter {
         }
     }
 
-    //JA
     private void Moo() {
         if (mem[memPtr] == 0) {
             mem[memPtr] = readAsciiFromStdIn();
@@ -156,7 +147,6 @@ public class CowInterpreter {
         }
     }
 
-    //testen
     private void MMM() {
         if (register == null) {
             register = mem[memPtr];
@@ -166,19 +156,16 @@ public class CowInterpreter {
         }
     }
 
-    //JA
     private void MOO() {
         if (mem[memPtr] == 0) {
             i = bracketsPosition.get(i);
         }
     }
 
-    //JA
     private void moo() {
         i = bracketsPosition.get(i) - 1;
     }
 
-    //JA
     private void mOO() {
         final int commandIndex = mem[memPtr];
         if (commandIndex == 3 || commandIndex < 0 || commandIndex > 11) {
